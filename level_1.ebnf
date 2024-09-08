@@ -1,0 +1,104 @@
+%start startsymb;
+
+/* Tokens and precedence */
+%left ":" ";";
+%left "<" "==";
+%left "+" "-";
+%left "*" "/";
+
+/* Grammar rules */
+startsymb: program;
+
+globalvar: "global" "id";
+
+program:
+    | "id" idseq %empty
+    | top ";" program
+    ;
+
+idseq: 
+    | %empty
+    ;
+
+top:
+    | definition
+    | external
+    | stmt
+    ;
+
+stmts:
+    | globalvar stmt
+    | stmt ";" stmts
+    | %empty
+    ;
+
+definition: "def" proto block;
+
+stmt:
+    | assignment
+    | exp
+    ;
+
+external:
+    | "extern" proto
+    | block
+    ;
+
+proto: "id" "(" idseq ")" "=" exp;
+
+block:
+    | "{" stmts "}"
+    | "{" vardefs ";" stmts "}"
+    ;
+
+vardefs:
+    | binding
+    | vardefs ";" binding
+    ;
+
+binding:
+    | "var" "id" initexp
+    ;
+
+initexp:
+    | "=" exp
+    | %empty
+    ;
+
+condexp:
+    | exp "?" exp ":" exp
+    ;
+
+exp:
+    | idexp
+    | exp "+" exp
+    | exp "-" exp
+    | exp "*" exp
+    | exp "/" exp
+    | exp "<" exp
+    | exp "==" exp
+    | expif
+    ;
+
+idexp:
+    | "id"
+    | "id" "(" optexp ")"
+    ;
+
+optexp:
+    | idexp
+    | "(" exp ")"
+    | explist
+    | "number"
+    | expif
+    | %empty
+    ;
+
+explist:
+    | exp
+    | exp "," explist
+    ;
+
+expif:
+    | condexp
+    ;
