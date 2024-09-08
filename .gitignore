@@ -3,3 +3,4 @@ kcomp
 parser.cpp
 parser.hpp
 scanner.cpp
+TESTS/*.ll
