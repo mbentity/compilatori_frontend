@@ -1,5 +1,4 @@
 def pow2(x i) {
-   var y = 1;
    x<2*i ? i : pow2(x,2*i)
 };
 def intpart(x acc) {
@@ -7,6 +6,5 @@ def intpart(x acc) {
    y == 0 ? acc : intpart(x-y,acc+y)
 };
 def floor(x) {
-   var y = 1;
    intpart(x,0)
 };
