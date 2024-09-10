@@ -6,3 +6,13 @@ scanner.cpp
 TESTS/*.ll
 TESTS/*.bc
 TESTS/*.s
+
+TESTS/floor
+TESTS/rand
+TESTS/fibonacci
+TESTS/sqrt
+TESTS/eqn2
+TESTS/inssort
+TESTS/inssort2
+TESTS/sqrt2
+TESTS/sqrt3
