@@ -1,6 +1,6 @@
 .PHONY: clean all
 
-INCLUDE_PATHS = -I/usr/lib/llvm-16/include -I/Users/entity/Documents/unimore/backend/INSTALL/include -I/Library/Developer/CommandLineTools/usr/include
+INCLUDE_PATHS = -I/opt/homebrew/opt/llvm/include -I/Library/Developer/CommandLineTools/usr/include
 LIBRARY_PATHS = -L/opt/homebrew/opt/zstd/lib
 
 all: kcomp

@@ -4,3 +4,5 @@ parser.cpp
 parser.hpp
 scanner.cpp
 TESTS/*.ll
+TESTS/*.bc
+TESTS/*.s
